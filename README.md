@@ -1,1 +1,1 @@
-# BankersAlgorithmGUIProgram
+# Banker's Algorithm Simulator Program
