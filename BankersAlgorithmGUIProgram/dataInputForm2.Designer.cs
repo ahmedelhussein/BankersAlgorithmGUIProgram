@@ -38,10 +38,15 @@
             availableResourcesGridView = new DataGridView();
             label4 = new Label();
             enterButton = new Button();
+            processesComboBox = new ComboBox();
+            processPrompt = new Label();
+            label6 = new Label();
+            resourcesRequestedGridView = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)currentAllocationGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)maxNeedGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalResourcesGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)availableResourcesGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)resourcesRequestedGridView).BeginInit();
             SuspendLayout();
             // 
             // currentAllocationGridView
@@ -128,7 +133,7 @@
             availableResourcesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             availableResourcesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             availableResourcesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            availableResourcesGridView.Location = new Point(361, 367);
+            availableResourcesGridView.Location = new Point(12, 366);
             availableResourcesGridView.Name = "availableResourcesGridView";
             availableResourcesGridView.Size = new Size(317, 196);
             availableResourcesGridView.TabIndex = 9;
@@ -137,7 +142,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(444, 339);
+            label4.Location = new Point(95, 338);
             label4.Name = "label4";
             label4.Size = new Size(181, 25);
             label4.TabIndex = 8;
@@ -154,11 +159,55 @@
             enterButton.UseVisualStyleBackColor = true;
             enterButton.Click += enterButton_Click;
             // 
+            // processesComboBox
+            // 
+            processesComboBox.FormattingEnabled = true;
+            processesComboBox.Location = new Point(789, 470);
+            processesComboBox.Name = "processesComboBox";
+            processesComboBox.Size = new Size(121, 23);
+            processesComboBox.TabIndex = 11;
+            // 
+            // processPrompt
+            // 
+            processPrompt.AutoSize = true;
+            processPrompt.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            processPrompt.Location = new Point(730, 442);
+            processPrompt.Name = "processPrompt";
+            processPrompt.Size = new Size(258, 25);
+            processPrompt.TabIndex = 12;
+            processPrompt.Text = "Process requesting resources";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(380, 338);
+            label6.Name = "label6";
+            label6.Size = new Size(286, 25);
+            label6.TabIndex = 14;
+            label6.Text = "Resources Requested by Process";
+            // 
+            // resourcesRequestedGridView
+            // 
+            resourcesRequestedGridView.AllowUserToAddRows = false;
+            resourcesRequestedGridView.AllowUserToDeleteRows = false;
+            resourcesRequestedGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            resourcesRequestedGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            resourcesRequestedGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resourcesRequestedGridView.Location = new Point(361, 366);
+            resourcesRequestedGridView.Name = "resourcesRequestedGridView";
+            resourcesRequestedGridView.Size = new Size(317, 196);
+            resourcesRequestedGridView.TabIndex = 15;
+            // 
             // dataInputForm2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1028, 655);
+            ClientSize = new Size(1028, 659);
+            Controls.Add(resourcesRequestedGridView);
+            Controls.Add(label6);
+            Controls.Add(processPrompt);
+            Controls.Add(processesComboBox);
             Controls.Add(enterButton);
             Controls.Add(availableResourcesGridView);
             Controls.Add(label4);
@@ -175,6 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)maxNeedGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalResourcesGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)availableResourcesGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)resourcesRequestedGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,5 +241,9 @@
         private DataGridView availableResourcesGridView;
         private Label label4;
         private Button enterButton;
+        private ComboBox processesComboBox;
+        private Label processPrompt;
+        private Label label6;
+        private DataGridView resourcesRequestedGridView;
     }
 }

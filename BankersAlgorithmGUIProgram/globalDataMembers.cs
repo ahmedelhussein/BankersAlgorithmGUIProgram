@@ -15,5 +15,6 @@ namespace BankersAlgorithmGUIProgram
         public static int[][] remainingNeed = new int [processesCount][];
         public static int[] availableResources = new int [resourcesCount];
         public static int[] totalResources = new int [resourcesCount];
+        public static int[] resourcesRequested = new int[resourcesCount];
     }
 }

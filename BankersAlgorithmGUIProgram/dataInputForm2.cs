@@ -75,6 +75,27 @@ namespace BankersAlgorithmGUIProgram
 
             availableResourcesGridView.Rows[0].HeaderCell.Value = "Available Resources";
 
+            //Initializing processes combobox with the number of processes
+            for (int i = 0; i < globalDataMembers.processesCount; i++)
+            {
+                processesComboBox.Items.Add("Process " + (i + 1));
+            }
+
+            //Setting default value of the processes combobox
+            processesComboBox.SelectedIndex = 0;
+
+            //Preventing user from entering values other than specified in the processes combobox
+            processesComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //Initializing resources requested by process data grid view with the number of resources
+            resourcesRequestedGridView.ColumnCount = globalDataMembers.resourcesCount;
+            resourcesRequestedGridView.RowCount = 1;
+
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                resourcesRequestedGridView.Columns[i].Name = "Resource " + (i + 1);
+            }
+
         }
 
         private void enterButton_Click(object sender, EventArgs e)
@@ -90,7 +111,7 @@ namespace BankersAlgorithmGUIProgram
                     globalDataMembers.maxNeed[i][j] = -1;
                 }
 
-                for(int j = 0; j < globalDataMembers.resourcesCount; j++)
+                for (int j = 0; j < globalDataMembers.resourcesCount; j++)
                 {
                     while (globalDataMembers.maxNeed[i][j] < 0 || globalDataMembers.maxNeed[i][j].GetType() != typeof(int))
                     {
@@ -169,8 +190,77 @@ namespace BankersAlgorithmGUIProgram
                 }
             }
 
+            //Reading data from the Total Resources Data Grid View
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                globalDataMembers.totalResources[i] = -1;
+            }
 
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                while (globalDataMembers.totalResources[i] < 0 || globalDataMembers.totalResources[i].GetType() != typeof(int))
+                {
+                    try
+                    {
+                        if (totalResourcesGridView.Rows[0].Cells[i].Value != null)
+                        {
+                            globalDataMembers.totalResources[i] = int.Parse(totalResourcesGridView.Rows[0].Cells[i].Value.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter a valid integer value for total resources of resource " + (i + 1));
+                            return;
+                        }
+                        if (globalDataMembers.totalResources[i] < 0)
+                        {
+                            MessageBox.Show("Please enter a valid integer value for total resources of resource " + (i + 1));
+                            return;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Please enter a valid integer value for total resources of resource " + (i + 1));
+                        return;
+                    }
+                }
+            }
 
+            //Reading data from the Available Resources Data Grid View
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                globalDataMembers.availableResources[i] = -1;
+            }
+
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                while (globalDataMembers.availableResources[i] < 0 || globalDataMembers.availableResources[i].GetType() != typeof(int))
+                {
+                    try
+                    {
+                        if (availableResourcesGridView.Rows[0].Cells[i].Value != null)
+                        {
+                            globalDataMembers.availableResources[i] = int.Parse(availableResourcesGridView.Rows[0].Cells[i].Value.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter a valid integer value for available resources of resource " + (i + 1));
+                            return;
+                        }
+                        if (globalDataMembers.availableResources[i] < 0)
+                        {
+                            MessageBox.Show("Please enter a valid integer value for available resources of resource " + (i + 1));
+                            return;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Please enter a valid integer value for available resources of resource " + (i + 1));
+                        return;
+                    }
+                }
+            }
         }
+
+
     }
 }
