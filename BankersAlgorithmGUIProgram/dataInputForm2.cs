@@ -81,6 +81,7 @@ namespace BankersAlgorithmGUIProgram
                 processesComboBox.Items.Add("Process " + (i + 1));
             }
 
+
             //Setting default value of the processes combobox
             processesComboBox.SelectedIndex = 0;
 
@@ -259,8 +260,54 @@ namespace BankersAlgorithmGUIProgram
                     }
                 }
             }
+
+            //Reading the process requesting resources from combobox choice
+            globalDataMembers.processRequesting = processesComboBox.SelectedIndex;
+
+            //Initializing the resources requested array
+            globalDataMembers.resourcesRequested = new int[globalDataMembers.resourcesCount];
+
+            //Reading the resources requested from the data grid view
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                globalDataMembers.resourcesRequested[i] = -1; 
+            }
+
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                while (globalDataMembers.resourcesRequested[i] < 0 || globalDataMembers.resourcesRequested[i].GetType() != typeof(int))
+                {
+                    try
+                    {
+                        if (resourcesRequestedGridView.Rows[0].Cells[i].Value != null)
+                        {
+                            globalDataMembers.resourcesRequested[i] = int.Parse(resourcesRequestedGridView.Rows[0].Cells[i].Value.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter a valid integer value for requested resources of resource " + (i + 1));
+                            return;
+                        }
+                        if (globalDataMembers.resourcesRequested[i] < 0)
+                        {
+                            MessageBox.Show("Please enter a valid integer value for requested resources of resource " + (i + 1));
+                            return;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Please enter a valid integer value for requested resources of resource " + (i + 1));
+                        return;
+                    }
+                }
+            }
+
+            
+            //STARTING THE SIMULATION
+            this.Hide();
+            simualationForm simualationForm = new simualationForm();
+            simualationForm.ShowDialog();
+
         }
-
-
     }
 }
