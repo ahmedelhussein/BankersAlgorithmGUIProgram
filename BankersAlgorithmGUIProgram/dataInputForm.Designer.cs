@@ -34,8 +34,6 @@
             label2 = new Label();
             textBox2 = new TextBox();
             nextButton = new Button();
-            label3 = new Label();
-            label4 = new Label();
             SuspendLayout();
             // 
             // programTitle
@@ -94,31 +92,11 @@
             nextButton.UseVisualStyleBackColor = true;
             nextButton.Click += nextButton_Click;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(346, 348);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 7;
-            label3.Text = "label3";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(408, 348);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 8;
-            label4.Text = "label4";
-            // 
             // dataInputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 405);
-            Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(nextButton);
             Controls.Add(textBox2);
             Controls.Add(label2);
@@ -140,7 +118,5 @@
         private Label label2;
         private TextBox textBox2;
         private Button nextButton;
-        private Label label3;
-        private Label label4;
     }
 }

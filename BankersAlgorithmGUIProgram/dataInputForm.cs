@@ -21,28 +21,41 @@ namespace BankersAlgorithmGUIProgram
         {
             if (int.TryParse(textBox1.Text, out globalDataMembers.processesCount))
             {
-                // The input is a valid integer
+                if (textBox1.Text == "" || textBox1.Text == null || int.Parse(textBox1.Text) <= 0)
+                {
+                    MessageBox.Show("Please enter a valid integer.");
+                }
 
+                else
+                {
+                    // The input is a valid integer
+                    if (textBox2.Text == "" || textBox2.Text == null || int.Parse(textBox2.Text) <= 0)
+                    {
+                        MessageBox.Show("Please enter a valid integer.");
+                    }
+                    else
+                    {
+                        if (int.TryParse(textBox2.Text, out globalDataMembers.resourcesCount))
+                        {
+                            // The input is a valid integer
+                            this.Hide();
+                            dataInputForm2 dataInputForm2 = new dataInputForm2();
+                            dataInputForm2.ShowDialog();
+                        }
+                        else
+                        {
+                            // The input is not a valid integer
+                            MessageBox.Show("Please enter a valid integer.");
+                        }
+                    }
+                }
             }
+
             else
             {
                 // The input is not a valid integer
                 MessageBox.Show("Please enter a valid integer.");
             }
-
-            if (int.TryParse(textBox2.Text, out globalDataMembers.resourcesCount))
-            {
-                // The input is a valid integer
-
-            }
-            else
-            {
-                // The input is not a valid integer
-                MessageBox.Show("Please enter a valid integer.");
-            }
-
-            label3.Text = globalDataMembers.processesCount.ToString();
-            label4.Text = globalDataMembers.resourcesCount.ToString();
         }
     }
 }

@@ -11,7 +11,9 @@ namespace BankersAlgorithmGUIProgram
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            
+            //To be changed to Form1
+            Application.Run(new dataInputForm());
         }
     }
 }
