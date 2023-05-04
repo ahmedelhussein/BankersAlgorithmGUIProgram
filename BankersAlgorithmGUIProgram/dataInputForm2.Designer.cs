@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             currentAllocationGridView = new DataGridView();
-            programTitle = new Label();
+            dataEntryFormTitle = new Label();
             label1 = new Label();
             label2 = new Label();
             maxNeedGridView = new DataGridView();
@@ -61,16 +61,16 @@
             currentAllocationGridView.Size = new Size(317, 196);
             currentAllocationGridView.TabIndex = 0;
             // 
-            // programTitle
+            // dataEntryFormTitle
             // 
-            programTitle.Dock = DockStyle.Top;
-            programTitle.Font = new Font("Dubai", 35.9999962F, FontStyle.Regular, GraphicsUnit.Point);
-            programTitle.Location = new Point(0, 0);
-            programTitle.Name = "programTitle";
-            programTitle.Size = new Size(1028, 81);
-            programTitle.TabIndex = 2;
-            programTitle.Text = "Processes and Resources Data Entry Form";
-            programTitle.TextAlign = ContentAlignment.TopCenter;
+            dataEntryFormTitle.Dock = DockStyle.Top;
+            dataEntryFormTitle.Font = new Font("Dubai", 35.9999962F, FontStyle.Regular, GraphicsUnit.Point);
+            dataEntryFormTitle.Location = new Point(0, 0);
+            dataEntryFormTitle.Name = "dataEntryFormTitle";
+            dataEntryFormTitle.Size = new Size(1028, 81);
+            dataEntryFormTitle.TabIndex = 2;
+            dataEntryFormTitle.Text = "Processes and Resources Data Entry Form";
+            dataEntryFormTitle.TextAlign = ContentAlignment.TopCenter;
             // 
             // label1
             // 
@@ -155,7 +155,7 @@
             enterButton.Name = "enterButton";
             enterButton.Size = new Size(178, 91);
             enterButton.TabIndex = 10;
-            enterButton.Text = "START SIMULATION";
+            enterButton.Text = "NEXT";
             enterButton.UseVisualStyleBackColor = true;
             enterButton.Click += enterButton_Click;
             // 
@@ -216,7 +216,7 @@
             Controls.Add(label2);
             Controls.Add(maxNeedGridView);
             Controls.Add(label1);
-            Controls.Add(programTitle);
+            Controls.Add(dataEntryFormTitle);
             Controls.Add(currentAllocationGridView);
             Name = "dataInputForm2";
             Text = "dataInputForm2";
@@ -232,7 +232,7 @@
         #endregion
 
         private DataGridView currentAllocationGridView;
-        private Label programTitle;
+        private Label dataEntryFormTitle;
         private Label label1;
         private Label label2;
         private DataGridView maxNeedGridView;

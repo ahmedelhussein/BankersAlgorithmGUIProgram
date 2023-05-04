@@ -270,7 +270,7 @@ namespace BankersAlgorithmGUIProgram
             //Reading the resources requested from the data grid view
             for (int i = 0; i < globalDataMembers.resourcesCount; i++)
             {
-                globalDataMembers.resourcesRequested[i] = -1; 
+                globalDataMembers.resourcesRequested[i] = -1;
             }
 
             for (int i = 0; i < globalDataMembers.resourcesCount; i++)
@@ -302,8 +302,21 @@ namespace BankersAlgorithmGUIProgram
                 }
             }
 
-            
-            //STARTING THE SIMULATION
+            //Comparing total resources with maximum need
+            for (int i = 0; i < globalDataMembers.processesCount; i++)
+            {
+                for (int j = 0; j < globalDataMembers.resourcesCount; j++)
+                {
+                    if (globalDataMembers.maxNeed[i][j] > globalDataMembers.totalResources[j])
+                    {
+                        MessageBox.Show("Maximum need of process " + (i + 1) + " and resource " + (j + 1) + " is greater than total resources of resource " + (j + 1));
+                        return;
+                    }
+                }
+            }
+
+
+            //STARTING THE SIMULATION FORM
             this.Hide();
             simualationForm simualationForm = new simualationForm();
             simualationForm.ShowDialog();
