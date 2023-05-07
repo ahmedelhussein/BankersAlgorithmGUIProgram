@@ -11,20 +11,24 @@ This form simply has a button that when clicked opens Form 2.
 ## Form 2 - Data Input Form 1
 This form takes the number of processes and resources with a button that when pressed checks for the validity of the entered numbers (Ensures that the value is non-negative, not null and is an integer value). After the validation of inputs, the form opens Form 3.
 
-![Data Input Form 1 Image](/SimulationTestImages/DataInputForm1.png "Data Input Form1")
+![Data Input Form 1 Image](/SimulationTestImages/DataInputForm1.png "Data Input Form 1")
 
 ## Form 3 - Data Input Form 2
-This form has 5 editable data grid views that take from the user:
+This form has 5 editable data grid views and a combobox that take data from the user:
 
-- Maximum Need: The maximum number of resources that each process needs.
+### Data Grid Views
+- Maximum Need Data: The maximum number of resources that each process needs.
 - Current Allocation: The number of resources that each process is currently allocated.
 - Available Resources: The number of resources that are available in the system.
 - Resources requested by process: The resources that each process requests.
+- Total Resources: The total number of each resource in the system.
+
+### ComboBox
 - Process Requesting Resources: The process requesting the resources.
 
 Exception handling is done in all data grid views' values to check for the validity of the entered numbers (Ensures that the value is non-negative, not null and is an integer value). After the validation of inputs, the form opens Form 4.
 
-![Data Input Form 2 Image](/SimulationTestImages/DataInputForm2.png "Data Input Form2")
+![Data Input Form 2 Image](/SimulationTestImages/DataInputForm2.png "Data Input Form 2")
 
 ## Form 4 - Simulation Form
 This form has 3 non-editable data grid views:
@@ -37,19 +41,19 @@ After each process is checked for safety, the Current Allocation and Remaining N
 
 The simulation form also has a button to start the simulation. When pressed, message boxes appear to inform the user of each and every process safety and when the system is entirely safe, a message box informing the user that the system is safe and shows the safe sequence of process execution. Else if it is not safe, a message box showing that the system is not safe is shown.
 
-![Simulation Form 1 Image](/SimulationTestImages/SimulationForm1.png "Simulation Form1")
+![Simulation Form 1 Image](/SimulationTestImages/SimulationForm1.png "Simulation Form 1")
 
 
-![Simulation Form 2 Image](/SimulationTestImages/SimulationForm2.png "Simulation Form2")
+![Simulation Form 2 Image](/SimulationTestImages/SimulationForm2.png "Simulation Form 2")
 
 
-![Simulation Form 3 Image](/SimulationTestImages/SimulationForm3.png "Simulation Form3")
+![Simulation Form 3 Image](/SimulationTestImages/SimulationForm3.png "Simulation Form 3")
 
 
-![Simulation Form 4 Image](/SimulationTestImages/SimulationForm4.png "Simulation Form4")
+![Simulation Form 4 Image](/SimulationTestImages/SimulationForm4.png "Simulation Form 4")
 
 
-![Simulation Form 5 Image](/SimulationTestImages/SimulationForm5.png "Simulation Form5")
+![Simulation Form 5 Image](/SimulationTestImages/SimulationForm5.png "Simulation Form 5")
 
 ## Requirements
 Microsoft Visual Studio 2019 or newer
