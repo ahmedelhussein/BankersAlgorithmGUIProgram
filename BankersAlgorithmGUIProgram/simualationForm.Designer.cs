@@ -58,7 +58,7 @@
             // 
             remainingNeedLabel.AutoSize = true;
             remainingNeedLabel.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            remainingNeedLabel.Location = new Point(393, 336);
+            remainingNeedLabel.Location = new Point(417, 336);
             remainingNeedLabel.Name = "remainingNeedLabel";
             remainingNeedLabel.Size = new Size(154, 25);
             remainingNeedLabel.TabIndex = 6;
@@ -130,6 +130,7 @@
             enterButton.TabIndex = 14;
             enterButton.Text = "START SIMULATION";
             enterButton.UseVisualStyleBackColor = true;
+            enterButton.Click += enterButton_Click;
             // 
             // simualationForm
             // 

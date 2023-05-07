@@ -139,9 +139,71 @@ namespace BankersAlgorithmGUIProgram
 
         }
 
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+            //Declaring and Initializing the safe sequence array with its count
+            int[] safeSequence = new int[globalDataMembers.processesCount];
+            int safeCount = 0;
 
+            //Declaring and Initializing the safety state of each process
+            bool[] processesSafetyState = new bool[globalDataMembers.processesCount];
+            for(int i=0;i<globalDataMembers.processesCount;i++)
+            {
+                processesSafetyState[i] = false;
+            }
 
+            //Declaring and Initializing an array to hold the variating available resources values
+            int[] instantaneousAvailableResources = new int[globalDataMembers.resourcesCount];
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                instantaneousAvailableResources[i] = globalDataMembers.availableResources[i];
+            }
 
+            while (safeCount < globalDataMembers.processesCount)
+            {
+                bool found = false;
 
+                for (int i=0; i < globalDataMembers.processesCount; i++)
+                {
+                    if (!processesSafetyState[i])
+                    {
+                        int j = globalDataMembers.resourcesCount;
+
+                        for(j=0; j < globalDataMembers.resourcesCount; j++)
+                        {
+                            if (globalDataMembers.remainingNeed[i][j] > instantaneousAvailableResources[j])
+                            {
+                                break;
+                            }
+                        }
+
+                        if(j == globalDataMembers.resourcesCount)
+                        {
+                            safeSequence[safeCount++] = i;
+                            processesSafetyState[i] = true;
+                            found = true;
+                            for (int k = 0; k < globalDataMembers.resourcesCount; k++)
+                            {
+                                instantaneousAvailableResources[k] += globalDataMembers.currentAllocation[i][k];
+                            }
+                        }
+                    }
+                }
+
+                if (!found)
+                    break;
+            }
+
+            if (safeCount == globalDataMembers.processesCount)
+            {
+                string safeSequenceStr = "Safe sequence is: ";
+                for (int i = 0; i < safeCount; i++)
+                    safeSequenceStr += safeSequence[i] + " ";
+             
+                MessageBox.Show(safeSequenceStr, "Safe Sequence", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("System is not in safe state!", "Unsafe System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
