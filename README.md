@@ -4,6 +4,8 @@ This program simulates the banker's algorithm in a Windows Forms Program. It is 
 
 ## Form 1 - Start Form
 This form simply has a button that when clicked opens Form 2.
+![Form 1 Image](/SimulationTestImages/Form1.png "Form1")
+
 
 ## Form 2 - Data Input Form 1
 This form takes the number of processes and resources with a button that when pressed checks for the validity of the entered numbers (Ensures that the value is non-negative, not null and is an integer value). After the validation of inputs, the form opens Form 3.
