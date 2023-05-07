@@ -37,7 +37,8 @@ This form has 3 non-editable data grid views:
 - Current Allocation: Shows the current allocation after adding the resources requested.
 - Remaining Need: This grid view shows the calculated remaining need of each process from each resource (Maximum Need - Current Allocation).
 
-After each process is checked for safety, the Current Allocation and Remaining Need data grid views in the simulation form row that corresponds to the process change color (If Safe, Color changes to green and changes to red otherwise).
+After each process is checked for safety, The row that corresponds to the process change color (If Safe, Color changes to green and changes to red otherwise) in the current allocation and remaining need data grid views in the simulation form.
+
 
 The simulation form also has a button to start the simulation. When pressed, message boxes appear to inform the user of each and every process safety and when the system is entirely safe, a message box informing the user that the system is safe and shows the safe sequence of process execution. Else if it is not safe, a message box showing that the system is not safe is shown.
 
