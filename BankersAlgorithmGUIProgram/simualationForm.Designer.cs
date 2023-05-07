@@ -145,6 +145,7 @@
             Controls.Add(remainingNeedGridView);
             Controls.Add(remainingNeedLabel);
             Controls.Add(simulatorFormTitle);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "simualationForm";
             Text = "Banker's Algorithm Simulator";
             ((System.ComponentModel.ISupportInitialize)remainingNeedGridView).EndInit();

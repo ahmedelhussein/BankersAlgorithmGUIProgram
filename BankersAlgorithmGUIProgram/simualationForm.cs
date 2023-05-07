@@ -147,7 +147,7 @@ namespace BankersAlgorithmGUIProgram
 
             //Declaring and Initializing the safety state of each process
             bool[] processesSafetyState = new bool[globalDataMembers.processesCount];
-            for(int i=0;i<globalDataMembers.processesCount;i++)
+            for (int i = 0; i < globalDataMembers.processesCount; i++)
             {
                 processesSafetyState[i] = false;
             }
@@ -163,28 +163,54 @@ namespace BankersAlgorithmGUIProgram
             {
                 bool found = false;
 
-                for (int i=0; i < globalDataMembers.processesCount; i++)
+                for (int i = 0; i < globalDataMembers.processesCount; i++)
                 {
                     if (!processesSafetyState[i])
                     {
-                        int j = globalDataMembers.resourcesCount;
+                        int j;
 
-                        for(j=0; j < globalDataMembers.resourcesCount; j++)
+                        for (j = 0; j < globalDataMembers.resourcesCount; j++)
                         {
                             if (globalDataMembers.remainingNeed[i][j] > instantaneousAvailableResources[j])
                             {
+                                //Show a message box that says that the process is not safe
+                                MessageBox.Show("Process " + (i + 1) + " is not safe", "Unsafe Process", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                //Change the color of the row of the process that is not safe in the remaining need grid view
+                                for (int k = 0; k < globalDataMembers.resourcesCount; k++)
+                                {
+                                    remainingNeedGridView[k, i].Style.BackColor = Color.Red;
+                                    currentAllocationGridView[k, i].Style.BackColor = Color.Red;
+                                }
+
                                 break;
                             }
                         }
 
-                        if(j == globalDataMembers.resourcesCount)
+                        if (j == globalDataMembers.resourcesCount)
                         {
-                            safeSequence[safeCount++] = i;
+                            //Show a message box that says that the process is safe
+                            MessageBox.Show("Process " + (i + 1) + " is safe", "Safe Process", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            //Change the color of the row of the process that is safe in the remaining need grid view
+                            for (int k = 0; k < globalDataMembers.resourcesCount; k++)
+                            {
+                                remainingNeedGridView[k, i].Style.BackColor = Color.Green;
+                                currentAllocationGridView[k, i].Style.BackColor = Color.Green;
+                            }
+
+                            safeSequence[safeCount++] = i + 1;
                             processesSafetyState[i] = true;
                             found = true;
                             for (int k = 0; k < globalDataMembers.resourcesCount; k++)
                             {
                                 instantaneousAvailableResources[k] += globalDataMembers.currentAllocation[i][k];
+                            }
+
+                            //Update the available resources grid view
+                            for (int k = 0; k < globalDataMembers.resourcesCount; k++)
+                            {
+                                availableResourcesGridView[k, 0].Value = instantaneousAvailableResources[k];
                             }
                         }
                     }
@@ -194,16 +220,27 @@ namespace BankersAlgorithmGUIProgram
                     break;
             }
 
-            if (safeCount == globalDataMembers.processesCount)
+            bool isSafe = true;
+            for (int i = 0; i < globalDataMembers.resourcesCount; i++)
+            {
+                if (instantaneousAvailableResources[i] < globalDataMembers.totalResources[i])
+                {
+                    isSafe = false;
+                    break;
+                }
+            }
+
+            if (isSafe)
             {
                 string safeSequenceStr = "Safe sequence is: ";
                 for (int i = 0; i < safeCount; i++)
                     safeSequenceStr += safeSequence[i] + " ";
-             
+
                 MessageBox.Show(safeSequenceStr, "Safe Sequence", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("System is not in safe state!", "Unsafe System", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
     }
 }

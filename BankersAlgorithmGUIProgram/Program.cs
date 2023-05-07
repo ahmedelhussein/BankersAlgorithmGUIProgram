@@ -13,7 +13,7 @@ namespace BankersAlgorithmGUIProgram
             ApplicationConfiguration.Initialize();
             
             //To be changed to Form1
-            Application.Run(new dataInputForm());
+            Application.Run(new Form1());
         }
     }
 }

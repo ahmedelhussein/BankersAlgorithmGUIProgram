@@ -218,8 +218,9 @@
             Controls.Add(label1);
             Controls.Add(dataEntryFormTitle);
             Controls.Add(currentAllocationGridView);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "dataInputForm2";
-            Text = "dataInputForm2";
+            Text = "Data Input Form 2";
             ((System.ComponentModel.ISupportInitialize)currentAllocationGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)maxNeedGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalResourcesGridView).EndInit();
